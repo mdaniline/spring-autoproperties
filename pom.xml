@@ -10,6 +10,7 @@
 
     <properties>
         <version.spring>[3.2,)</version.spring>
+        <version.guava>[12,)</version.guava>
     </properties>
 
     <dependencies>
@@ -28,6 +29,11 @@
             <artifactId>spring-beans</artifactId>
             <version>${version.spring}</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${version.guava}</version>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -42,6 +48,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${version.spring}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

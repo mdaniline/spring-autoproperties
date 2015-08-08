@@ -1,6 +1,6 @@
 package com.mdaniline.spring.autoproperties;
 
-import com.mdaniline.spring.autoproperties.testclasses.TestBasicProperties;
+import com.mdaniline.spring.autoproperties.testclasses.ValidProperties;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.junit.Assert.*;
 
 public class AutoPropertiesRegistrarTest {
@@ -25,7 +26,7 @@ public class AutoPropertiesRegistrarTest {
 
     @Before
     public void setUp() throws Exception {
-        metadata = new StandardAnnotationMetadata(TestConfig.class, true);
+        metadata = new StandardAnnotationMetadata(TestConfiguration.class, true);
         registry = new DefaultListableBeanFactory();
 
         underTest = new AutoPropertiesRegistrar();
@@ -38,10 +39,10 @@ public class AutoPropertiesRegistrarTest {
         underTest.registerBeanDefinitions(metadata, registry);
 
         List<String> beanNames = Arrays.asList(registry.getBeanDefinitionNames());
-        assertThat(beanNames, contains("testBasicProperties"));
+        assertThat(beanNames, containsInAnyOrder("badlyConfiguredProperties", "validProperties"));
     }
 
-    @EnableAutoProperties(basePackageClasses = TestBasicProperties.class)
-    private class TestConfig {
+    @EnableAutoProperties(basePackageClasses = ValidProperties.class)
+    public static class TestConfiguration {
     }
 }

@@ -4,11 +4,9 @@ import com.mdaniline.spring.autoproperties.AutoProperties;
 import org.springframework.beans.factory.annotation.Value;
 
 @AutoProperties
-public interface TestBasicProperties {
+public interface BadlyConfiguredProperties {
+    String getValueWithoutAnnotation();
 
-    @Value("${string.prop}")
-    String getStringProp();
-
-    @Value("${integer.prop}")
-    String getIntegerProp();
+    @Value("String")
+    Integer getValueOfWrongType();
 }

@@ -32,8 +32,10 @@ public class AutoPropertiesRegistrar implements ImportBeanDefinitionRegistrar, E
         provider.setEnvironment(environment);
         provider.setResourceLoader(resourceLoader);
 
+        ClassLoader classLoader = resourceLoader.getClassLoader();
+
         AutoPropertiesBeanNameGenerator nameGenerator = new AutoPropertiesBeanNameGenerator();
-        nameGenerator.setBeanClassLoader(resourceLoader.getClassLoader());
+        nameGenerator.setBeanClassLoader(classLoader);
 
         Set<BeanDefinition> candidates = new HashSet<BeanDefinition>();
         for (String basePackage : getBasePackages(annotationMetadata)) {
@@ -45,6 +47,7 @@ public class AutoPropertiesRegistrar implements ImportBeanDefinitionRegistrar, E
             BeanDefinitionBuilder builder = BeanDefinitionBuilder.rootBeanDefinition(AutoPropertiesFactoryBean.class.getName());
             builder.getRawBeanDefinition().setSource(annotationMetadata);
             builder.addConstructorArgValue(definition.getBeanClassName());
+            builder.addConstructorArgValue(classLoader);
 
             AbstractBeanDefinition beanDefinition = builder.getBeanDefinition();
             String beanName = nameGenerator.generateBeanName(beanDefinition, registry);
