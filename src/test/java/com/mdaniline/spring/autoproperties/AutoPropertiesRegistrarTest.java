@@ -1,7 +1,6 @@
 package com.mdaniline.spring.autoproperties;
 
 import com.mdaniline.spring.autoproperties.testclasses.TestBasicProperties;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
