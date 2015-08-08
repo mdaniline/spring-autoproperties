@@ -57,4 +57,11 @@
             </plugin>
         </plugins>
     </build>
+
+    <scm>
+        <connection>scm:git:git://github.com/mdaniline/spring-autoproperties.git</connection>
+        <developerConnection>scm:git:git@github.com:mdaniline/spring-autoproperties.git</developerConnection>
+        <url>http://github.com/mdaniline/spring-autoproperties</url>
+    </scm>
+
 </project>
