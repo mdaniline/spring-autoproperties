@@ -7,6 +7,9 @@
     <groupId>com.mdaniline</groupId>
     <artifactId>spring-autoproperties</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Automatically implement interfaces using Value annotations</description>
+    <url>https://github.com/mdaniline/spring-autoproperties</url>
 
     <properties>
         <version.spring>[3.2,)</version.spring>
@@ -75,5 +78,30 @@
         <developerConnection>scm:git:git@github.com:mdaniline/spring-autoproperties.git</developerConnection>
         <url>http://github.com/mdaniline/spring-autoproperties</url>
     </scm>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/mdaniline/spring-autoproperties/issues</url>
+    </issueManagement>
+
+    <ciManagement>
+        <system>Travis CI</system>
+        <url>https://travis-ci.org/mdaniline/spring-autoproperties</url>
+    </ciManagement>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
