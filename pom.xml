@@ -149,6 +149,14 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <name>Max Daniline</name>
+            <url>https://github.com/mdaniline</url>
+            <timezone>0</timezone>
+        </developer>
+    </developers>
+
     <issueManagement>
         <system>GitHub</system>
         <url>https://github.com/mdaniline/spring-autoproperties/issues</url>
