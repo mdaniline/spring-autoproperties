@@ -9,6 +9,16 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * Enables automatic proxying of interfaces annotated with {@link AutoProperties @AutoProperties}.
+ *
+ * This interface should be applied to a Spring configuration class annotated with
+ * {@link org.springframework.context.annotation.Configuration @Configuration}
+ *
+ * @since 1.0
+ * @see AutoProperties
+ * @see org.springframework.context.annotation.Configuration
+ */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented

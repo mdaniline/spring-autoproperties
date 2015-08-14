@@ -8,8 +8,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
+import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
+import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.Matchers.contains;
@@ -19,6 +23,10 @@ import static org.junit.Assert.assertThat;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ValidPropertiesTest.TestConfiguration.class)
 @TestPropertySource(properties = "test.property=Resolved Test Property")
+@TestExecutionListeners(listeners = {
+        DependencyInjectionTestExecutionListener.class,
+        DirtiesContextTestExecutionListener.class
+})
 public class ValidPropertiesTest {
 
     @Autowired

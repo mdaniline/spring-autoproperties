@@ -1,13 +1,13 @@
 package com.mdaniline.spring.autoproperties;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
-import org.springframework.beans.factory.support.BeanNameGenerator;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.ResourceLoaderAware;
-import org.springframework.context.annotation.AnnotationBeanNameGenerator;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.env.Environment;
@@ -22,6 +22,8 @@ import java.util.Map;
 import java.util.Set;
 
 public class AutoPropertiesRegistrar implements ImportBeanDefinitionRegistrar, EnvironmentAware, ResourceLoaderAware {
+
+    private static final Log LOG = LogFactory.getLog(AutoPropertiesRegistrar.class);
 
     private Environment environment;
     private ResourceLoader resourceLoader;
@@ -53,6 +55,10 @@ public class AutoPropertiesRegistrar implements ImportBeanDefinitionRegistrar, E
             String beanName = nameGenerator.generateBeanName(beanDefinition, registry);
 
             registry.registerBeanDefinition(beanName, beanDefinition);
+            if (LOG.isDebugEnabled()) {
+                LOG.debug(String.format("Registered auto-property bean %s with name %s",
+                        definition.getBeanClassName(), beanName));
+            }
         }
     }
 

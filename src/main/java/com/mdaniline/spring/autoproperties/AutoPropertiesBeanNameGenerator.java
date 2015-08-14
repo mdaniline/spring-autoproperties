@@ -22,8 +22,8 @@ public class AutoPropertiesBeanNameGenerator implements BeanNameGenerator, BeanC
 
     @Override
     public String generateBeanName(BeanDefinition definition, BeanDefinitionRegistry registry) {
-        AnnotatedBeanDefinition annotatedDefiition = new AnnotatedGenericBeanDefinition(getPropertiesInterface(definition));
-        return DEFAULT_NAME_GENERATOR.generateBeanName(annotatedDefiition, registry);
+        AnnotatedBeanDefinition annotatedDefinition = new AnnotatedGenericBeanDefinition(getPropertiesInterface(definition));
+        return DEFAULT_NAME_GENERATOR.generateBeanName(annotatedDefinition, registry);
     }
 
     private Class<?> getPropertiesInterface(BeanDefinition beanDefinition) {
