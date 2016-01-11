@@ -13,7 +13,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.spring>[3.2,)</version.spring>
+        <version.spring>[4.2,)</version.spring>
         <version.guava>[12,)</version.guava>
     </properties>
 

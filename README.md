@@ -4,6 +4,18 @@
 
 A Spring plugin to automatically generate implementations of interfaces using `@Value` annotations. This is handy for organising multiple related properties into a single beans without needing to implement the bean itself.
 
+### Installation
+
+Get the jar through Maven:
+
+```xml
+<dependency>
+    <groupId>com.mdaniline</groupId>
+    <artifactId>spring-autoproperties</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
 ### Usage
 
 1.  Annotate your application config bean with `@EnableAutoProperties`. You will need to specify the `basePackages` and/or `basePackageClasses` properties to configure which packages should be scanned.
