@@ -66,9 +66,9 @@ public class AutoPropertiesFactoryBean extends AbstractFactoryBean<Object> {
                 String strValue = beanFactory.resolveEmbeddedValue(val.value());
                 BeanExpressionResolver resolver = beanFactory.getBeanExpressionResolver();
 
-                Object uncovertedResult = resolver.evaluate(strValue, new BeanExpressionContext(beanFactory, null));
+                Object unconvertedResult = resolver.evaluate(strValue, new BeanExpressionContext(beanFactory, null));
                 TypeConverter converter = beanFactory.getTypeConverter();
-                return converter.convertIfNecessary(uncovertedResult, method.getReturnType());
+                return converter.convertIfNecessary(unconvertedResult, method.getReturnType());
             }
             String message = "Method %s on interface %s must be annotated with @Value for auto-properties to work!";
             throw new AutoPropertiesException(String.format(message, method.getName(), method.getDeclaringClass().getName()));
