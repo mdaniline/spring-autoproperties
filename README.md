@@ -12,9 +12,14 @@ Get the jar through Maven:
 <dependency>
     <groupId>com.mdaniline</groupId>
     <artifactId>spring-autoproperties</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
+
+### Dependencies
+
+* Java 1.6+
+* Spring 4.2+
 
 ### Usage
 
